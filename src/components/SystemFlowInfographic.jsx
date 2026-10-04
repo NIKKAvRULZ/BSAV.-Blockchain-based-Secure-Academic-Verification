@@ -1,56 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-
-const flowSteps = [
-  {
-    step: '01',
-    title: 'Lecturer Upload & Time-Gate',
-    comp: 'Component 3: Silent Bridge',
-    desc: 'Lecturer uploads Excel/CSV LMS grade sheets. System checks dynamic policy window, strips PII for PDPA compliance, rejects duplicate payload hashes, and appends record to local private ledger.',
-    tag: 'Ingestion & Privacy',
-    color: 'emerald',
-  },
-  {
-    step: '02',
-    title: 'Context-Aware Routing',
-    comp: 'Component 3 Middleware',
-    desc: 'Differentiates standard lecturer submissions from formal Grade Appeals or Re-corrections, dynamically routing requests directly to the mock server bypass channel.',
-    tag: 'Workflow Branching',
-    color: 'blue',
-  },
-  {
-    step: '03',
-    title: 'BOE Review & Version Audit',
-    comp: 'Component 2: BOE Governance',
-    desc: 'Board of Examiners reviews marks, applies moderation changes with correction reasons, tracks version history, and hashes candidate ID + module + grade into temporary internal chain.',
-    tag: 'Academic Governance',
-    color: 'amber',
-  },
-  {
-    step: '04',
-    title: 'Merkle & IPFS Dataset Build',
-    comp: 'Component 1: Proof Layer',
-    desc: 'Compiles finalized student hashes into a Binary Merkle Tree, calculates the Merkle Root, and pins the dataset JSON on IPFS via Pinata to generate a Content Identifier (CID).',
-    tag: 'Decentralized Storage',
-    color: 'purple',
-  },
-  {
-    step: '05',
-    title: 'Ethereum Smart Contract Anchor',
-    comp: 'Component 1: Ethereum EVM',
-    desc: 'Executes ProofStorage Solidity contract to immutably anchor the Merkle Root, IPFS CID, timestamp, and uploader address on the Ethereum blockchain.',
-    tag: 'Blockchain Anchoring',
-    color: 'indigo',
-  },
-  {
-    step: '06',
-    title: 'ZKP Corporate Verification',
-    comp: 'Component 4: Verification Gateway',
-    desc: 'Employers verify student claims (Candidate ID + Module + Grade). System computes Groth16 Zero-Knowledge Proof & Merkle path, confirming VALID / INVALID without exposing raw transcripts.',
-    tag: 'Zero-Knowledge Proof',
-    color: 'emerald',
-  },
-]
+import { CheckCircle2, ShieldCheck, Terminal } from 'lucide-react'
+import { verifySteps, apiEndpoint } from '../data/constants'
 
 export default function SystemFlowInfographic() {
   const [selectedNode, setSelectedNode] = useState(0)
@@ -63,60 +14,81 @@ export default function SystemFlowInfographic() {
           <p className="text-[#22c55e] font-bold uppercase tracking-widest text-xs mb-3">SYSTEM ARCHITECTURE INFOGRAPHIC</p>
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">End-to-End System Workflow</h2>
           <p className="text-gray-600 font-medium text-base md:text-lg">
-            Interactive breakdown of how academic records travel from lecturer upload to blockchain anchoring and zero-knowledge verification.
+            Eight-stage verification lifecycle showing how an academic claim traverses ProofStorage anchoring, IPFS dataset retrieval, and Groth16 ZKP resolution.
           </p>
           <div className="mx-auto h-1 w-16 bg-[#22c55e] rounded-full mt-4" />
         </div>
 
-        {/* Step Selector */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
-          {flowSteps.map((step, idx) => (
+        {/* Step Selector Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-10">
+          {verifySteps.map((step, idx) => (
             <button
-              key={step.step}
+              key={step.title}
               onClick={() => setSelectedNode(idx)}
-              className={`p-4 rounded-2xl text-left border transition-all duration-300 ${
+              className={`p-3.5 rounded-2xl text-left border transition-all duration-300 ${
                 selectedNode === idx
                   ? 'bg-black text-white border-black shadow-lg scale-105'
                   : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100'
               }`}
             >
-              <div className={`text-xs font-black mb-1 ${selectedNode === idx ? 'text-[#22c55e]' : 'text-gray-400'}`}>
-                STEP {step.step}
+              <div className={`text-[10px] font-black mb-1 ${selectedNode === idx ? 'text-[#22c55e]' : 'text-gray-400'}`}>
+                STEP 0{idx + 1}
               </div>
               <div className="text-xs font-extrabold truncate">{step.title}</div>
             </button>
           ))}
         </div>
 
-        {/* Detail Card */}
+        {/* Active Stage Detail Card */}
         <motion.div
           key={selectedNode}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="p-8 md:p-10 bg-gray-50/80 rounded-3xl border border-gray-200 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8"
+          transition={{ duration: 0.35 }}
+          className="p-8 md:p-10 bg-gray-50/80 rounded-3xl border border-gray-200 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8 mb-8"
         >
           <div className="space-y-4 max-w-2xl">
             <div className="flex items-center gap-3">
               <span className="px-3 py-1 bg-[#22c55e] text-black font-black text-xs uppercase tracking-widest rounded-full">
-                {flowSteps[selectedNode].tag}
+                Phase 0{selectedNode + 1} of 08
               </span>
-              <span className="text-xs font-bold text-gray-500">{flowSteps[selectedNode].comp}</span>
+              <span className="text-xs font-mono font-bold text-gray-500">
+                {selectedNode < 4 ? 'Anchor & Ingestion Boundary' : 'Verification & Proof Boundary'}
+              </span>
             </div>
-            <h3 className="text-2xl md:text-3xl font-black text-gray-900">{flowSteps[selectedNode].title}</h3>
-            <p className="text-base text-gray-700 leading-relaxed font-medium">{flowSteps[selectedNode].desc}</p>
+            <h3 className="text-2xl md:text-3xl font-black text-gray-900">
+              {verifySteps[selectedNode].title}
+            </h3>
+            <p className="text-base text-gray-700 leading-relaxed font-medium">
+              {verifySteps[selectedNode].desc}
+            </p>
           </div>
 
-          {/* Payload Preview */}
+          {/* Live Mock Verification Payload */}
           <div className="w-full md:w-auto shrink-0 bg-white p-6 rounded-2xl border border-gray-200 text-center font-mono text-xs shadow-sm">
-            <div className="text-gray-400 text-[10px] uppercase font-bold mb-2">Contract Payload</div>
-            <div className="p-3 bg-gray-900 text-green-400 rounded-xl text-left text-[11px] font-mono leading-relaxed overflow-x-auto max-w-xs">
+            <div className="flex items-center justify-between gap-4 text-gray-400 text-[10px] uppercase font-bold mb-2">
+              <span>Cryptographic State</span>
+              <span className="text-[#22c55e] flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5" /> Bound</span>
+            </div>
+            <div className="p-3.5 bg-gray-900 text-green-400 rounded-xl text-left text-[11px] font-mono leading-relaxed overflow-x-auto max-w-xs">
               <code>
-                {`{\n  "step": "${flowSteps[selectedNode].step}",\n  "status": "VERIFIED",\n  "provenanceHash": "91659...a4d9",\n  "merkleRoot": "0x4a7...2b1",\n  "zkpValid": true\n}`}
+{`{\n  "step": "0${selectedNode + 1}_${verifySteps[selectedNode].title.toLowerCase().replace(/\\s+/g, '_')}",\n  "status": "VALID",\n  "merkleRoot": "0x7a3f...9f2c",\n  "ipfsCID": "QmXoypizjW3WknFi...",\n  "zkpClaimValid": true\n}`}
               </code>
             </div>
           </div>
         </motion.div>
+
+        {/* Discovery API Reference Strip */}
+        <div className="p-4 bg-gray-900 text-gray-200 rounded-2xl border border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
+          <div className="flex items-center gap-2">
+            <Terminal className="w-4 h-4 text-[#22c55e]" />
+            <span className="text-gray-400">Proof Context Lookup Endpoint:</span>
+            <span className="text-white font-bold">{apiEndpoint}</span>
+          </div>
+          <span className="text-[11px] text-[#22c55e] font-semibold bg-green-950/60 px-2.5 py-1 rounded-lg border border-green-800/40">
+            HTTP 200 OK · Deterministic Resolution
+          </span>
+        </div>
       </div>
     </section>
   )
