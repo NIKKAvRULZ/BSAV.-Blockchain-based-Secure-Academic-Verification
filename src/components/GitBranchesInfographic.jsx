@@ -5,7 +5,7 @@ import { gitBranches, REPO } from '../data/constants'
 
 export default function GitBranchesInfographic() {
   const [activeModule, setActiveModule] = useState('All')
-  const modules = ['All', 'Component 1', 'Component 2', 'Component 3', 'Component 4']
+  const modules = ['All', 'Component 1', 'Component 2', 'Component 3', 'Component 4', 'Integration']
 
   const filteredBranches = activeModule === 'All' 
     ? gitBranches 

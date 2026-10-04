@@ -1,22 +1,20 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, FileText, Cpu, ShieldCheck } from 'lucide-react'
-import { PROJECT_ID, metricsStats, abstract } from '../data/constants'
+import { ArrowRight, FileText, Cpu, Award, ExternalLink } from 'lucide-react'
+import { PROJECT_ID, metricsStats, abstract, conference } from '../data/constants'
 
 export default function Hero() {
   const heroRef = useRef(null)
 
-  // Parallax scroll hooks
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start'],
   })
 
-  // Multilayer parallax speeds
   const yAura = useTransform(scrollYProgress, [0, 1], [0, 150])
   const yTitle = useTransform(scrollYProgress, [0, 1], [0, 80])
   const yMetrics = useTransform(scrollYProgress, [0, 1], [0, 40])
-  const opacityFade = useTransform(scrollYProgress, [0, 0.8], [1, 0])
+  const opacityFade = useTransform(scrollYProgress, [0, 0.85], [1, 0])
 
   return (
     <section
@@ -24,34 +22,51 @@ export default function Hero() {
       ref={heroRef}
       className="relative flex flex-col items-center justify-center min-h-[95vh] text-center px-6 overflow-hidden pt-16 pb-28 soft-mesh-bg"
     >
-      {/* Parallax Floating Ambient Glow */}
+      {/* Parallax Ambient Glow */}
       <motion.div
         style={{ y: yAura }}
         className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-cyan-400/15 via-sky-300/10 to-indigo-400/10 rounded-full blur-[140px] -z-10 pointer-events-none"
       />
 
-      {/* Project ID Tag */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-cyan-200/60 text-cyan-800 text-[11px] font-bold uppercase tracking-widest mb-10 shadow-[0_4px_20px_-4px_rgba(14,165,233,0.12)]"
-      >
-        <span className="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse" />
-        <span>Research Project {PROJECT_ID} · SLIIT Faculty of Computing</span>
-      </motion.div>
+      {/* Top Badges: Project Tag + ICDMIS Acceptance */}
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-cyan-200/60 text-cyan-800 text-[11px] font-bold uppercase tracking-widest shadow-[0_4px_20px_-4px_rgba(14,165,233,0.12)]"
+        >
+          <span className="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse" />
+          <span>Research Project {PROJECT_ID} · SLIIT</span>
+        </motion.div>
 
-      {/* Parallax Title */}
+        {/* Official ICDMIS Acceptance Pill */}
+        <motion.a
+          href={conference.url}
+          target="_blank"
+          rel="noreferrer"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500/10 via-cyan-500/15 to-indigo-500/10 border border-emerald-400/40 text-emerald-800 text-[11px] font-bold tracking-wide shadow-sm hover:scale-105 hover:border-emerald-500 transition-all group backdrop-blur-md"
+        >
+          <Award className="w-3.5 h-3.5 text-emerald-600 group-hover:rotate-12 transition-transform" />
+          <span>Accepted at {conference.name}</span>
+          <ExternalLink className="w-3 h-3 text-emerald-600/70" />
+        </motion.a>
+      </div>
+
+      {/* Hero Title */}
       <motion.div
         style={{ y: yTitle, opacity: opacityFade }}
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.1 }}
-        className="max-w-6xl mx-auto"
+        className="max-w-6xl mx-auto overflow-visible"
       >
         <h1 className="text-7xl sm:text-8xl md:text-[9.5rem] font-black mb-6 tracking-tighter leading-none text-slate-900 select-none">
           <span>BS</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-500 to-indigo-600 drop-shadow-[0_15px_35px_rgba(14,165,233,0.2)]">
+          <span className="inline-block pr-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-sky-500 to-indigo-600 drop-shadow-[0_15px_35px_rgba(14,165,233,0.2)]">
             AV
           </span>
           <span className="text-cyan-400/60 font-light">.</span>
@@ -70,7 +85,7 @@ export default function Hero() {
           Blockchain-Based Transparent and Secure Academic Grading Using Decentralized Verification
         </h2>
         <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-normal leading-relaxed">
-          An end-to-end framework turning submitted grades into cryptographically verifiable claims without revealing sensitive student data.
+          An end-to-end framework turning submitted grades into cryptographically verifiable claims without revealing sensitive student data[cite: 1, 10].
         </p>
         <div className="mx-auto h-1 w-16 bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full mt-6 opacity-80" />
       </motion.div>
