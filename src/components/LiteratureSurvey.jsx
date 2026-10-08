@@ -28,7 +28,7 @@ export default function LiteratureSurvey() {
             Literature Survey
           </motion.h2>
           <p className="text-slate-500 font-normal text-base md:text-lg">
-            Examining existing distributed educational registries and their architectural boundaries[cite: 12].
+            Examining existing distributed educational registries and their architectural boundaries.
           </p>
           <div className="mx-auto h-1 w-12 bg-cyan-500/80 rounded-full mt-4" />
         </div>
