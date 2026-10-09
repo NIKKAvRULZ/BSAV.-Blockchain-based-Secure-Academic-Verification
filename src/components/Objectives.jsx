@@ -15,7 +15,7 @@ export default function Objectives() {
             Research Objectives
           </h2>
           <p className="text-slate-500 font-normal text-base md:text-lg">
-            Specific design targets defined to realize the four-component integrity framework[cite: 1, 10, 13].
+            Specific design targets defined to realize the four-component integrity framework.
           </p>
           <div className="mx-auto h-1 w-12 bg-cyan-500/80 rounded-full mt-4" />
         </div>

@@ -85,7 +85,7 @@ export default function Hero() {
           Blockchain-Based Transparent and Secure Academic Grading Using Decentralized Verification
         </h2>
         <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-normal leading-relaxed">
-          An end-to-end framework turning submitted grades into cryptographically verifiable claims without revealing sensitive student data[cite: 1, 10].
+          An end-to-end framework turning submitted grades into cryptographically verifiable claims without revealing sensitive student data.
         </p>
         <div className="mx-auto h-1 w-16 bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full mt-6 opacity-80" />
       </motion.div>

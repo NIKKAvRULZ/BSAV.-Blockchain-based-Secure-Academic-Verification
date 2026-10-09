@@ -25,7 +25,7 @@ export default function TechStack() {
             Technology Stack
           </h2>
           <p className="text-slate-500 font-normal text-base md:text-lg">
-            Decentralized frameworks, cryptographic primitives, and smart-contract verification engines[cite: 1, 10, 47].
+            Decentralized frameworks, cryptographic primitives, and smart-contract verification engines.
           </p>
           <div className="mx-auto h-1 w-12 bg-cyan-500/80 rounded-full mt-4" />
         </div>
@@ -76,7 +76,7 @@ export default function TechStack() {
         <div className="p-6 bg-slate-50/80 rounded-[2rem] border border-slate-200/60 text-center max-w-3xl mx-auto shadow-sm flex items-center justify-center gap-3">
           <Cpu className="w-5 h-5 text-cyan-600 shrink-0" />
           <p className="text-xs text-slate-600 font-medium">
-            <strong className="text-slate-900">Prototype Testbed:</strong> Deployed on local Hardhat EVM nodes with public Pinata IPFS pinning and Certora formal smart-contract verification[cite: 1, 10, 47].
+            <strong className="text-slate-900">Prototype Testbed:</strong> Deployed on local Hardhat EVM nodes with public Pinata IPFS pinning and Certora formal smart-contract verification.
           </p>
         </div>
       </div>

@@ -28,7 +28,7 @@ export const conference = {
 
 /* ───────── ABSTRACT, KEYWORDS, CONTRIBUTIONS ───────── */
 export const abstract =
-  'Academic result systems usually depend on centralized databases and manual verification, which leaves room for unauthorized changes, falsified results and slow checks by third parties. This research presents a four-component framework that splits the result life cycle into controlled ingestion and provenance (Component 3), academic governance with Board of Examiners (BOE) review, version tracking and finalization (Component 2), cryptographic anchoring with Merkle Trees, IPFS and smart contracts (Component 1), and independent claim verification with Zero-Knowledge Proofs (Component 4). A research prototype using a Hardhat EVM, MongoDB Atlas and Pinata IPFS shows the four components working end to end, keeping integrity across the blockchain, IPFS dataset, record hashes and proof index without revealing raw grades[cite: 1, 10].'
+  'Academic result systems usually depend on centralized databases and manual verification, which leaves room for unauthorized changes, falsified results and slow checks by third parties. This research presents a four-component framework that splits the result life cycle into controlled ingestion and provenance (Component 3), academic governance with Board of Examiners (BOE) review, version tracking and finalization (Component 2), cryptographic anchoring with Merkle Trees, IPFS and smart contracts (Component 1), and independent claim verification with Zero-Knowledge Proofs (Component 4). A research prototype using a Hardhat EVM, MongoDB Atlas and Pinata IPFS shows the four components working end to end, keeping integrity across the blockchain, IPFS dataset, record hashes and proof index without revealing raw grades.'
 
 export const keywords = [
   'Academic Result Verification',
@@ -318,34 +318,80 @@ export const milestones = [
   { id: 'final-presentation', name: 'Final Presentation & Viva', desc: 'Individual viva on each member’s contribution.', status: 'Pending' },
 ]
 
-/* ───────── PROJECT DOCUMENTS ───────── */
+/* ───────── PROJECT DOCUMENTS (Hosted on Cloud Drive) ───────── */
 export const docs = [
-  { 
-    name: 'Research Paper', 
-    detail: 'ICDMIS Accepted · IEEE Format · PDF', 
-    path: '/documents/Research Paper.pdf',
-    filename: 'Research Paper.pdf'
+  {
+    name: 'Research Paper',
+    detail: 'ICDMIS Accepted · IEEE Camera-Ready Format · PDF',
+    // Replace YOUR_FILE_ID with the actual Google Drive file ID
+    driveUrl: 'https://drive.google.com/file/d/1MpFqzGmLfEw1iJ6JgSzS13eqbmJ_er7p/view?usp=sharing',
+    type: 'PDF',
   },
-  { 
-    name: 'TAF (Topic Assessment)', 
-    detail: 'Official Form · PDF', 
-    path: '/documents/TAF.pdf',
-    filename: 'TAF.pdf'
+  {
+    name: 'Topic Assessment Form (TAF)',
+    detail: 'Official Signed Assessment Form · PDF',
+    driveUrl: 'https://drive.google.com/file/d/1MpFqzGmLfEw1iJ6JgSzS13eqbmJ_er7p/view?usp=sharing',
+    type: 'PDF',
   },
-  { 
-    name: 'Project Proposal', 
-    detail: 'Detailed Proposal · PDF', 
-    path: '/documents/Proposal.pdf',
-    filename: 'Proposal.pdf'
+  {
+    name: 'Project Proposal Documents',
+    detail: 'Detailed Academic Research Proposal · PDF',
+    driveUrl: 'https://drive.google.com/drive/folders/18Ysnds_RQFHsm8Ay8D-S1v1JdD-SJaVe?usp=drive_link',
+    type: 'PDF',
   },
-  { 
-    name: 'Proposal Presentation', 
-    detail: 'Slide Deck · PPTX', 
-    path: '/documents/Proposal Presentation.pptx',
-    filename: 'Proposal Presentation.pptx'
+  {
+    name: 'Final Project Report',
+    detail: 'Complete Individual & Group Report · PDF',
+    driveUrl: 'https://drive.google.com/file/d/YOUR_FINAL_REPORT_ID/view?usp=sharing',
+    type: 'PDF',
+  },
+  {
+    name: 'Project Deployment Report',
+    detail: 'Complete Individual & Group Report · PDF',
+    driveUrl: 'https://drive.google.com/file/d/1zfiXuOTEGqkWPQUuADgKYNN5lfllpFim/view?usp=sharing',
+    type: 'PDF',
+  },
+  {
+    name: 'Project Log Books',
+    detail: 'Complete Individual & Group Report · PDF',
+    driveUrl: 'https://drive.google.com/drive/folders/1V-4ukVNWv4ZJrdrWrUuF8FzPNzHL9GNP?usp=drive_link',
+    type: 'PDF',
   },
 ]
 
+/* ───────── PRESENTATIONS & SLIDE DECKS ───────── */
+export const presentations = [
+  {
+    name: 'Proposal Presentation',
+    detail: 'Initial Topic & Feasibility Defense · Slide Deck',
+    driveUrl: 'https://docs.google.com/presentation/d/1Qu6H_r6cN1Kza1dRk5p6pu-U697BsGeW/edit?usp=drive_link&ouid=113651727862717401017&rtpof=true&sd=true',
+    type: 'PPTX',
+  },
+  {
+    name: 'Progress Presentation I (50%)',
+    detail: 'Progress Presentation 1 · Slide Deck',
+    driveUrl: 'https://docs.google.com/presentation/d/1HYTF5iATng3VAGAu3GQ-xAiZ-FmOpjZI/edit?usp=drive_link&ouid=113651727862717401017&rtpof=true&sd=true',
+    type: 'PPTX',
+  },
+  {
+    name: 'Progress Presentation II (90%)',
+    detail: 'Progress Presentation 2 · Slide Deck',
+    driveUrl: 'https://docs.google.com/presentation/d/1RdW1gEP0xBiOg6vpjYWbhSxtxcKdvCOR/edit?usp=drive_link&ouid=113651727862717401017&rtpof=true&sd=true',
+    type: 'PPTX',
+  },
+  {
+    name: 'ICDMIS Presentation',
+    detail: 'ICDMIS Conference Presentation · Slide Deck',
+    driveUrl: 'https://docs.google.com/presentation/d/1_dL2ig3_PtejI-MHDMzbs2zF2uMoVSdZ/edit?usp=drive_link&ouid=113651727862717401017&rtpof=true&sd=true',
+    type: 'PPTX',
+  },
+  {
+    name: 'Final Defense & Viva Presentation',
+    detail: 'Final Viva Slide Deck & Evaluation Demo · Slide Deck',
+    driveUrl: 'https://drive.google.com/file/d/YOUR_FINAL_PPTX_ID/view?usp=sharing',
+    type: 'PPTX',
+  },
+]
 
 /* ───────── SUPERVISORS ───────── */
 export const supervisors = [
@@ -375,7 +421,7 @@ export const team = [
   {
     name: 'H.P.C.D.P. Patabandige',
     isLeader: false,
-    image: '/team/member2.png',
+    image: '/team/member2.jpg',
     linkedin: 'https://linkedin.com',
     email: 'chamodidilki44@gmail.com',
   },
@@ -389,7 +435,7 @@ export const team = [
   {
     name: 'N.S.G. Perera',
     isLeader: false,
-    image: '/team/member4.png',
+    image: '/team/member4.jpg',
     linkedin: 'https://linkedin.com',
     email: 'susaraperera33@gmail.com',
   },

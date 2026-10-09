@@ -42,7 +42,7 @@ export default function Milestones() {
             Academic Milestones Journey
           </h2>
           <p className="text-slate-500 font-normal text-base md:text-lg">
-            Follow the chronological roadmap from problem formulation and charter approval to final viva defense[cite: 1, 39].
+            Follow the chronological roadmap from problem formulation and charter approval to final viva defense.
           </p>
           <div className="mx-auto h-1 w-12 bg-cyan-500/80 rounded-full mt-4" />
         </div>

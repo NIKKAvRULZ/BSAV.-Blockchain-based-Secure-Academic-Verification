@@ -23,7 +23,7 @@ export default function GitBranchesInfographic() {
             Git Branch Architecture
           </h2>
           <p className="text-slate-500 font-normal text-base md:text-lg">
-            Isolated feature development branches representing decoupled modules across the research lifecycle[cite: 1, 33].
+            Isolated feature development branches representing decoupled modules across the research lifecycle.
           </p>
           <div className="mx-auto h-1 w-12 bg-cyan-500/80 rounded-full mt-4" />
         </div>
@@ -93,7 +93,7 @@ export default function GitBranchesInfographic() {
             </div>
             <div>
               <div className="text-sm font-bold text-white">Full Source Code &amp; Issue Tracking</div>
-              <div className="text-xs text-slate-400">Available on GitHub with complete commit history[cite: 1, 49].</div>
+              <div className="text-xs text-slate-400">Available on GitHub with complete commit history.</div>
             </div>
           </div>
           <a
