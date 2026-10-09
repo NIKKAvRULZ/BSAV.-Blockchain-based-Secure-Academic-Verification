@@ -1,121 +1,160 @@
-import { motion } from 'framer-motion'
-import { Sparkles, ArrowRight, FileText, Cpu, ShieldCheck } from 'lucide-react'
-import { PROJECT_ID, metricsStats } from '../data/constants'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ArrowRight, FileText, Cpu, Award, ExternalLink } from 'lucide-react'
+import { PROJECT_ID, metricsStats, abstract, conference } from '../data/constants'
 
 export default function Hero() {
-  return (
-    <section id="home" className="relative flex flex-col items-center justify-center min-h-[95vh] text-center px-6 overflow-hidden pt-12 pb-20">
-      {/* Background cryptographic cyan/indigo glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[520px] bg-gradient-to-b from-cyan-500/15 via-indigo-500/10 to-transparent rounded-full blur-[140px] -z-10 pointer-events-none" />
+  const heroRef = useRef(null)
 
-      {/* Project ID Tag */}
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  })
+
+  const yAura = useTransform(scrollYProgress, [0, 1], [0, 150])
+  const yTitle = useTransform(scrollYProgress, [0, 1], [0, 80])
+  const yMetrics = useTransform(scrollYProgress, [0, 1], [0, 40])
+  const opacityFade = useTransform(scrollYProgress, [0, 0.85], [1, 0])
+
+  return (
+    <section
+      id="home"
+      ref={heroRef}
+      className="relative flex flex-col items-center justify-center min-h-[95vh] text-center px-6 overflow-hidden pt-16 pb-28 soft-mesh-bg"
+    >
+      {/* Parallax Ambient Glow */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 border border-cyan-200/80 text-cyan-700 text-xs font-black uppercase tracking-widest mb-8 shadow-sm"
-      >
-        <Cpu className="w-3.5 h-3.5 text-cyan-600" />
-        <span>Research Project {PROJECT_ID} · SLIIT Faculty of Computing</span>
-      </motion.div>
+        style={{ y: yAura }}
+        className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-cyan-400/15 via-sky-300/10 to-indigo-400/10 rounded-full blur-[140px] -z-10 pointer-events-none"
+      />
+
+      {/* Top Badges: Project Tag + ICDMIS Acceptance */}
+      <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-cyan-200/60 text-cyan-800 text-[11px] font-bold uppercase tracking-widest shadow-[0_4px_20px_-4px_rgba(14,165,233,0.12)]"
+        >
+          <span className="flex h-2 w-2 rounded-full bg-cyan-500 animate-pulse" />
+          <span>Research Project {PROJECT_ID} · SLIIT</span>
+        </motion.div>
+
+        {/* Official ICDMIS Acceptance Pill */}
+        <motion.a
+          href={conference.url}
+          target="_blank"
+          rel="noreferrer"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-emerald-500/10 via-cyan-500/15 to-indigo-500/10 border border-emerald-400/40 text-emerald-800 text-[11px] font-bold tracking-wide shadow-sm hover:scale-105 hover:border-emerald-500 transition-all group backdrop-blur-md"
+        >
+          <Award className="w-3.5 h-3.5 text-emerald-600 group-hover:rotate-12 transition-transform" />
+          <span>Accepted at {conference.name}</span>
+          <ExternalLink className="w-3 h-3 text-emerald-600/70" />
+        </motion.a>
+      </div>
 
       {/* Hero Title */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        style={{ y: yTitle, opacity: opacityFade }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="max-w-6xl mx-auto"
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="max-w-6xl mx-auto overflow-visible"
       >
-        <h1 className="text-7xl sm:text-8xl md:text-[10.5rem] font-black mb-6 tracking-tighter leading-none text-slate-900">
+        <h1 className="text-7xl sm:text-8xl md:text-[9.5rem] font-black mb-6 tracking-tighter leading-none text-slate-900 select-none">
           <span>BS</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-500 to-indigo-600 drop-shadow-[0_10px_25px_rgba(14,165,233,0.25)]">AV</span>
-          <span className="text-slate-300">.</span>
+          <span className="inline-block pr-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-sky-500 to-indigo-600 drop-shadow-[0_15px_35px_rgba(14,165,233,0.2)]">
+            AV
+          </span>
+          <span className="text-cyan-400/60 font-light">.</span>
         </h1>
       </motion.div>
 
-      {/* Tagline Subtitle */}
+      {/* Subtitle */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        style={{ opacity: opacityFade }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="max-w-4xl mx-auto space-y-4 mb-12"
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="max-w-4xl mx-auto space-y-4 mb-14"
       >
-        <h2 className="text-2xl md:text-4xl font-medium text-slate-700 tracking-tight leading-snug">
+        <h2 className="text-2xl md:text-3xl font-semibold text-slate-700 tracking-tight leading-snug">
           Blockchain-Based Transparent and Secure Academic Grading Using Decentralized Verification
         </h2>
-        <h3 className="text-xl md:text-2xl font-bold text-slate-900 max-w-3xl mx-auto leading-relaxed">
-          Academic grades that anyone can verify and no one can quietly change.
-        </h3>
-        <div className="mx-auto h-1.5 w-24 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-full mt-6" />
+        <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-normal leading-relaxed">
+          An end-to-end framework turning submitted grades into cryptographically verifiable claims without revealing sensitive student data.
+        </p>
+        <div className="mx-auto h-1 w-16 bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full mt-6 opacity-80" />
       </motion.div>
 
-      {/* Key Metrics */}
+      {/* Parallax Metrics Cards */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        style={{ y: yMetrics }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        className="w-full max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 mb-14"
+        transition={{ duration: 0.7, delay: 0.3 }}
+        className="w-full max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 mb-14"
       >
         {metricsStats.map((stat) => {
           const Icon = stat.icon
           return (
-            <motion.div
+            <div
               key={stat.label}
-              whileHover={{ y: -4, scale: 1.02 }}
-              className="p-5 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md hover:border-cyan-400 transition-all text-left"
+              className="p-6 bg-white/70 backdrop-blur-xl rounded-[1.75rem] border border-slate-200/60 text-left shadow-[0_10px_25px_-10px_rgba(15,23,42,0.03)] hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] hover:border-cyan-300/80 hover:-translate-y-1 transition-all duration-300 group"
             >
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-3xl font-black text-slate-900 tracking-tight">{stat.value}</span>
-                <div className="w-9 h-9 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center font-bold">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-3xl font-black text-slate-900 tracking-tight group-hover:text-cyan-700 transition-colors">
+                  {stat.value}
+                </span>
+                <div className="w-10 h-10 rounded-2xl bg-cyan-50/80 border border-cyan-100 text-cyan-600 flex items-center justify-center font-bold group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
                   <Icon className="w-5 h-5" />
                 </div>
               </div>
-              <div className="text-xs font-extrabold text-slate-900">{stat.label}</div>
-              <div className="text-[11px] text-slate-500 font-medium mt-0.5">{stat.sub}</div>
-            </motion.div>
+              <div className="text-xs font-bold text-slate-800">{stat.label}</div>
+              <div className="text-[11px] text-slate-400 font-medium mt-0.5 leading-snug">{stat.sub}</div>
+            </div>
           )
         })}
       </motion.div>
 
       {/* Abstract Card */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="relative bg-white/80 backdrop-blur-md border border-slate-200 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow max-w-4xl mx-auto mb-14 text-left"
+        transition={{ duration: 0.7, delay: 0.4 }}
+        className="relative bg-white/75 backdrop-blur-xl border border-slate-200/70 p-7 md:p-9 rounded-[2rem] shadow-[0_15px_35px_-12px_rgba(15,23,42,0.04)] max-w-4xl mx-auto mb-14 text-left"
       >
-        <h3 className="text-xs font-black text-cyan-600 uppercase tracking-widest mb-3 border-b border-cyan-100 pb-2 inline-block">
-          Project Abstract
-        </h3>
-        <p className="text-sm md:text-base text-slate-700 leading-relaxed font-medium">
-          BSAV is a four-component framework that takes a result from lecturer upload, through Board of Examiners review,
-          to a blockchain-anchored proof that employers and universities can check without seeing the grade. Academic result
-          systems usually depend on centralized databases and manual verification, leaving room for unauthorized changes and
-          slow checks[cite: 1, 10]. BSAV splits the result lifecycle into controlled ingestion, academic governance with versioning,
-          cryptographic anchoring with Merkle Trees &amp; IPFS, and independent zero-knowledge proof claim verification[cite: 1, 10].
+        <span className="text-[10px] font-bold text-cyan-700 uppercase tracking-widest mb-3 px-3 py-1 bg-cyan-50/80 border border-cyan-100 rounded-full inline-block">
+          Executive Abstract
+        </span>
+        <p className="text-sm md:text-[15px] text-slate-600 leading-relaxed font-normal">
+          {abstract}
         </p>
       </motion.div>
 
       {/* Action Buttons */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full sm:w-auto z-10 justify-center"
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="flex flex-col sm:flex-row space-y-3.5 sm:space-y-0 sm:space-x-5 w-full sm:w-auto z-10 justify-center"
       >
         <a
           href="#infographic"
-          className="px-10 py-4 bg-gradient-to-r from-cyan-600 to-indigo-600 text-white rounded-2xl hover:from-cyan-500 hover:to-indigo-500 hover:-translate-y-1 transition-all duration-300 font-black uppercase tracking-widest text-xs shadow-[0_20px_40px_rgba(14,165,233,0.3)] flex items-center justify-center gap-2"
+          className="px-8 py-3.5 bg-gradient-to-r from-cyan-600 via-sky-600 to-indigo-600 text-white rounded-2xl hover:shadow-[0_18px_35px_-10px_rgba(14,165,233,0.35)] hover:-translate-y-0.5 transition-all duration-300 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-sm"
         >
-          <span>Explore System Flow</span>
+          <span>Explore Architecture</span>
           <ArrowRight className="w-4 h-4" />
         </a>
         <a
           href="#downloads"
-          className="px-10 py-4 bg-white/90 backdrop-blur-sm border-2 border-slate-200 text-slate-900 rounded-2xl hover:border-slate-900 hover:-translate-y-1 transition-all duration-300 font-black uppercase tracking-widest text-xs shadow-sm flex items-center justify-center gap-2"
+          className="px-8 py-3.5 bg-white/80 backdrop-blur-md border border-slate-200/80 text-slate-700 rounded-2xl hover:border-slate-300 hover:bg-white hover:text-slate-900 hover:-translate-y-0.5 transition-all duration-300 font-bold text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-2.5"
         >
-          <span>Project Documents</span>
-          <FileText className="w-4 h-4" />
+          <span>Research Documents</span>
+          <FileText className="w-4 h-4 text-slate-400" />
         </a>
       </motion.div>
     </section>
