@@ -14,6 +14,7 @@ import Downloads               from './components/Downloads'
 import Team                    from './components/Team'
 import References              from './components/References'
 import Footer                  from './components/Footer'
+import SystemArchitectureDiagram from './components/SystemArchitectureDiagram'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <ProblemSolution />
         <Objectives />
         <Methodology />
+        <SystemArchitectureDiagram />
         <MerkleZkpVisualizer />
         <TechStack />
         <GitBranchesInfographic />
