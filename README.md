@@ -4,31 +4,28 @@
 # 🔐 BSAV
 ### Blockchain-Based Transparent and Secure Academic Grading Using Decentralized Verification
 
-**A decentralized academic grading, governance, and privacy-preserving verification framework**
+**Academic Integrity • Decentralized Trust • Cryptographic Verification • Student Privacy**
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/🌐_LIVE_DEMO-VIEW_PROJECT-00C7B7?style=for-the-badge)](https://bsav-blockchain-based-secure-academic-verification-fygavqks7.vercel.app/)
-[![Conference](https://img.shields.io/badge/ICDMIS_2026-PAPER_ACCEPTED-059669?style=for-the-badge)](https://icdmis.ikrf.in/)
+![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=00C7B7&center=true&vCenter=true&width=850&lines=Blockchain-Based+Academic+Verification;Decentralized+Trust+%7C+Academic+Integrity;Zero-Knowledge+Proofs+%7C+Merkle+Trees;Securing+Academic+Records+with+Blockchain)
+
+<br/>
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Explore_BSAV-00C7B7?style=for-the-badge&logo=vercel&logoColor=white)](https://bsav-blockchain-based-secure-academic-verification-fygavqks7.vercel.app/)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Source_Code-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/NIKKAvRULZ/BSAV.-Blockchain-based-Secure-Academic-Verification)
+[![Conference](https://img.shields.io/badge/ICDMIS_2026-Paper_Accepted-059669?style=for-the-badge)](https://icdmis.ikrf.in/)
 [![Research](https://img.shields.io/badge/SLIIT-R26--SE--011-6366F1?style=for-the-badge)](https://www.sliit.lk/)
 
 <br/>
 
-![React](https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white)
-![Ethereum](https://img.shields.io/badge/Ethereum-3C3C3D?style=flat-square&logo=ethereum&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![IPFS](https://img.shields.io/badge/IPFS-65C2CB?style=flat-square&logo=ipfs&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+**[🌐 Live Website](https://bsav-blockchain-based-secure-academic-verification-fygavqks7.vercel.app/) • 
+[💻 GitHub Repository](https://github.com/NIKKAvRULZ/BSAV.-Blockchain-based-Secure-Academic-Verification) • 
+[📚 Research Conference](https://icdmis.ikrf.in/) • 
+[🎓 SLIIT](https://www.sliit.lk/)**
 
-<br/>
+</div>
 
-**Academic Integrity • Decentralized Trust • Cryptographic Verification • Student Privacy**
-
-[🚀 Explore Live Website](https://bsav-blockchain-based-secure-academic-verification-fygavqks7.vercel.app/) ·
-[📚 Research Conference](https://icdmis.ikrf.in/) ·
-[🎓 SLIIT](https://www.sliit.lk/)
 
 </div>
 
@@ -971,6 +968,7 @@ The research team acknowledges the academic guidance and supervision provided by
 
 The project also recognizes the contributions of the open-source communities supporting blockchain development, decentralized storage, web engineering, and cryptographic verification research.
 
+
 ---
 
 <div align="center">
@@ -981,13 +979,18 @@ The project also recognizes the contributions of the open-source communities sup
 
 <br/>
 
-[![Website](https://img.shields.io/badge/WEBSITE-VISIT_BSAV-00C7B7?style=for-the-badge)](https://bsav-blockchain-based-secure-academic-verification-fygavqks7.vercel.app/)
-[![Research](https://img.shields.io/badge/RESEARCH-ICDMIS_2026-6366F1?style=for-the-badge)](https://icdmis.ikrf.in/)
+[![Website](https://img.shields.io/badge/Live_Website-Visit_BSAV-00C7B7?style=for-the-badge&logo=vercel)](https://bsav-blockchain-based-secure-academic-verification-fygavqks7.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-View_Source_Code-181717?style=for-the-badge&logo=github)](https://github.com/NIKKAvRULZ/BSAV.-Blockchain-based-Secure-Academic-Verification)
+[![Conference](https://img.shields.io/badge/Research-ICDMIS_2026-6366F1?style=for-the-badge)](https://icdmis.ikrf.in/)
+
+<br/>
+
+**[View Repository](https://github.com/NIKKAvRULZ/BSAV.-Blockchain-based-Secure-Academic-Verification) | [Explore Live Demo](https://bsav-blockchain-based-secure-academic-verification-fygavqks7.vercel.app/)**
 
 <br/>
 
 **Made with ❤️ for Academic Integrity and Decentralized Trust**
 
-**© 2026 BSAV Research Team — SLIIT**
+© 2026 BSAV Research Team — SLIIT
 
 </div>
